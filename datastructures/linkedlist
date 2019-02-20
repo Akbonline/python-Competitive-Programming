@@ -26,9 +26,38 @@ class linked_list:
 			cur_node = cur_node.next
 			elem.append(cur_node.data)
 		print elem
+	def get(self,index):			#Getting the element at a particular index
+		if(index>=self.length()):
+			print("ERROR: 'Get'Index out of range")
+			return None
+		cur_idx=0
+		cur_node=self.head
+		while True:
+			cur_node=cur_node.next
+			if cur_idx==index:
+				return cur_node.data
+			cur_idx+=1
+	def delete(self,index):
+		if(index>=self.length()):
+			print("ERROR: 'Get'Index out of range")
+			return None
+		cur_idx=0
+		cur_node=self.head
+		while True:
+			prev_node=cur_node
+			cur_node=cur_node.next
+			if cur_idx==index:
+				prev_node.next=cur_node.next
+				return
+			cur_idx+=1
 
 mylist= linked_list() 				#Creating a linked_list class object
 mylist.append(1)					#Appending to the linked list. (Initializing)
 mylist.append(2)
 mylist.append("hello")	#We can also include a string type element unlike Linked Lists in C
+mylist.display()
+a=input("Enter the index of element: ")
+print(mylist.get(a))
+b=input("Enter the index to delete the element: ")
+mylist.delete(b)
 mylist.display()
