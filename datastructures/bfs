@@ -4,22 +4,22 @@ class node:
 		self.next=None
 
 class linked_list:
-	def __init__(self):
+	def __init__(self): 			#Constructor intializing the linked_list's first node(Header)
 		self.head = node()
-	def append(self,info):
+	def append(self,info):			#Member function to add new element at the last
 		new_node = node(info)
 		cur = self.head
-		while cur.next!=None:
+		while cur.next!=None:		#Traverse the list until you reach the last element
 			cur=cur.next
 		cur.next = new_node
-	def length(self):
+	def length(self):				#Member function to find out the length of the linked list
 		cur = self.head
 		total = 0
 		while cur.next!=None:
 			total+=1
 			cur = cur.next
 		return total
-	def display(self):
+	def display(self):				#Printing a list of linked list elements
 		elem=[]
 		cur_node = self.head
 		while cur_node.next!=None:
@@ -27,8 +27,8 @@ class linked_list:
 			elem.append(cur_node.data)
 		print elem
 
-mylist= linked_list()
-mylist.append(1)
+mylist= linked_list() 				#Creating a linked_list class object
+mylist.append(1)					#Appending to the linked list. (Initializing)
 mylist.append(2)
-mylist.append("hello")
+mylist.append("hello")	#We can also include a string type element unlike Linked Lists in C
 mylist.display()
