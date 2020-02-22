@@ -1,4 +1,4 @@
-#Longest Palindrome in a sequence of numbers:
+#Longest Palindrome in Sub-String:
 def longestPalindrome(s):
     length=len(s)
     startIndex=-1
