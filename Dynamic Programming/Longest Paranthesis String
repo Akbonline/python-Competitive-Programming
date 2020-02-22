@@ -1,0 +1,29 @@
+#Longest Parenthesis Substring
+str=")"
+path=[]
+state="start"
+lstr=list(str)
+
+count=0
+for i in lstr:
+    if i=='(' and state=="start":
+        print(state)
+        state="B" 
+    elif i==')' and state=="B":
+        print(state)
+        state="C"
+        count=count+2
+    elif i=='(' and state=="B":
+        print(state)
+        state="B"
+        count=0
+    elif i=='(' and state=="C":
+        print(state)
+        state="B"
+    elif i==')' and state=="C":
+        print(state)
+        state="A"
+        path.append(count)
+        count=0
+    path.append(count)
+print(max(path))
