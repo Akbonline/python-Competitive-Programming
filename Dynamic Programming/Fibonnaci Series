@@ -1,0 +1,14 @@
+#Prob1: Find the nth Fibonnaci Series
+n=7
+x=[0 for _ in range(n+1)]
+for i in range(n+1):
+    if i==0:
+        x[i]=1
+        print("For 0 =>",x[i])
+    elif i==1:
+        x[i]=1
+        print("For 1 =>",x[i])
+    else:
+        x[i]=x[i-1]+x[i-2]
+        print("For ",i," =>",x[i])
+print(x[i])
