@@ -1,0 +1,22 @@
+graph = { "A":["B","C","D","E"],
+         "B":["A","C","G"],
+         "C":["A","B","D"],
+         "D":["A","C","E","H"],
+         "E":["A","D","F"],
+         "F":["E","G","H"],
+         "G":["B","F"],
+         "H":["D","F"]
+        } 
+visited=[]
+stack=graph.keys()
+stack.append('A')
+while(len(visited)!=len(graph)):
+    popped_item=stack.pop()
+    if((popped_item) not in visited):     #Pop element
+        visited.append(popped_item)    #processing
+        print(popped_item)   #Do the question specific operation here(We are printing here but you can do different things)    
+    for i in graph[popped_item]:     #Add all the popped neighbours in the stack
+        if(i not in visited):
+            stack.append(i)
+
+print(graph)
