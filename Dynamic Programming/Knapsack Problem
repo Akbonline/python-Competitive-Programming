@@ -1,0 +1,33 @@
+#KNAPSACK PROBLEM
+#Q). Given a maximum number of weight of item: Return the most amount of money you can spend by multiple items of Weights
+dollar={ 5:60 , 3:50 , 4:70 , 2:30 }
+weight={ 0:5 , 1:3 , 2:4 , 3:2 }
+n=5
+previous=0
+current=0
+x=[[0 for _ in range(n+1)]for _ in range(len(weight))]
+for cols in range(n+1):
+    if weight[0]>cols:
+        x[0][cols]=0
+        print("IN for weight ",weight[0]," and column: ",cols)
+    else:
+        x[0][cols]=dollar[weight[0]]
+        
+print("")
+for rows in range(1,len(weight)):
+    for cols in range(n+1):
+        if weight[rows]>cols:
+            x[rows][cols]=x[rows-1][cols]
+            print("IN for weight ",weight[rows]," and column: ",cols)
+        else:
+            previous=max(x[rows-1][cols],x[rows-1][cols-weight[rows]]+dollar[weight[rows]])
+            current=x[rows-1][cols]
+            x[rows][cols]=max(current,previous)
+    print("")
+    
+for rows in range(len(weight)):
+    print(weight[rows]," : ",dollar[weight[rows]]," :"),
+    for cols in range(n+1):
+        print(x[rows][cols]),
+    print("")
+print(x[-1]p)
