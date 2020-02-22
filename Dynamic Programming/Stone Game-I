@@ -1,0 +1,30 @@
+piles=[3,7,2,3]
+def minimum(piles):
+    alex=0
+    lee=0
+    for i in range(len(piles)/2):
+        alex=alex+max(piles[0],piles[-1])
+        
+        piles.remove(max(piles[0],piles[-1]))
+        lee=lee+min(piles[0],piles[-1])
+        piles.remove(min(piles[0],piles[-1]))
+          
+    return(alex>lee)
+
+def maximum(piles):
+    alex=0
+    lee=0
+    for i in range(len(piles)/2):
+        alex=alex+max(piles[0],piles[-1])
+        
+        piles.remove(max(piles[0],piles[-1]))
+        lee=lee+max(piles[0],piles[-1])
+        piles.remove(max(piles[0],piles[-1]))
+          
+    return(alex>lee)
+        
+    
+def pick(piles):
+    return(minimum(piles) or maximum(piles))
+a=pick(piles)
+print(a)
