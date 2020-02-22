@@ -1,0 +1,23 @@
+str1="abbca"
+str2="abba"
+length = len(str1)
+length1 = len(str2)
+x=[[0 for _ in range(length1+1)]for _ in range(length+1)]
+for i in x:
+    for j in i:
+        print(j),
+    print
+for i in range(length+1):
+    for j in range(length1+1):
+        if(i==0 or j==0):
+            x[i][j]=0
+        elif(str1[i-1]==str2[j-1]):
+            x[i][j]=1+x[i-1][j-1]
+        else:
+            x[i][j]=max(x[i-1][j],x[i][j-1])
+print
+for i in x:
+    for j in i:
+        print(j),
+    print
+print(x[length][length1])
