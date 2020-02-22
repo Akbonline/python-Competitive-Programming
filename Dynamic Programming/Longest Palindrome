@@ -1,0 +1,28 @@
+#Longest Palindrome in a sequence of numbers:
+def longestPalindrome(s):
+    length=len(s)
+    startIndex=-1
+    x =[[False for _ in xrange(length)]for _ in xrange(length)]
+    plen=1
+    for i in range(0,length): #For length ==1 (Only works for length 1)
+        x[i][i]=True
+        plen=1
+        startIndex = i
+    print(startIndex,plen)
+    for i in range(0,length-1):# For length ==2
+        if s[i]==s[i+1]:
+            plen=2
+            startIndex=i
+            x[i][i+1]=True
+    print(startIndex,plen)
+    for k in range(3,length+1): #For length 3 or more
+        for i in range(0,length - k+1):
+            j=i+k-1
+            if x[i+1][j-1] and s[i] == s[j]:
+                x[i][j]=True
+                plen=k
+                startIndex=i
+    return (s[startIndex:startIndex+plen])
+s="b"
+a=longestPalindrome(s)
+print(a)
